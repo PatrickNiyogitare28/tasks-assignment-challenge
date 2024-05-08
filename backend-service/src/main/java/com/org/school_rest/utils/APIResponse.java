@@ -22,6 +22,12 @@ public class APIResponse {
         super();
     }
 
+    public APIResponse(String message, boolean status) {
+        super();
+        this.message = message;
+        this.status = status;
+    }
+
     public String getMessage() {
         return message;
     }

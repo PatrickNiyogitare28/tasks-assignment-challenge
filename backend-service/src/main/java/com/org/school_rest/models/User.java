@@ -1,7 +1,5 @@
 package com.org.school_rest.models;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.org.school_rest.enumerations.EAccountStatus;
 import org.hibernate.validator.constraints.UniqueElements;
@@ -51,8 +49,11 @@ public class User {
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User() {
+    // Many-to-many relationship with Task
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    private Set<Task> tasks = new HashSet<>();
 
+    public User() {
     }
 
     public User(@NotNull(message = "first name is compulsory") String firstName,
@@ -164,5 +165,11 @@ public class User {
         this.roles = roles;
     }
 
+//    public Set<Task> getTasks() {
+//        return tasks;
+//    }
+//
+//    public void setTasks(Set<Task> tasks) {
+//        this.tasks = tasks;
+//    }
 }
-
