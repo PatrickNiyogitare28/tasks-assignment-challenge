@@ -20,7 +20,7 @@ The backend service is a Spring Boot application, which is a popular framework f
 - **Port 5000**: The backend service is configured to run on port 5000. This port is where the service listens for incoming HTTP requests.
 - **Spring Boot Configuration**: Configuration files (application.properties or application.yml) are used to set up database connections, server port, logging, and other application-specific properties.
 
-# Frontend: React
+# Frontend: React - NextJs
 
 The frontend of the application is built using React, a popular JavaScript library for building user interfaces. React provides a component-based architecture for creating dynamic and interactive web applications. Here's an overview of the frontend setup:
 
