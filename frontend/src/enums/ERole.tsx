@@ -1,5 +1,0 @@
-export interface ERole {
-    ADMIN:"ADMIN",
-    REFUGEE_FOCAL_POINT:"REFUGEE_FOCAL_POINT",
-    REFUGEE: "REFUGEE"
-}
