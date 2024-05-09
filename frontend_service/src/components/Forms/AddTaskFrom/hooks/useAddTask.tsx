@@ -4,20 +4,21 @@ import { useState } from 'react';
 import axiosInstance from '@/lib/axios';
 import toast from 'react-hot-toast';
 import { IResponse, cloudinaryService } from '@/lib/utils/cloudinaly';
+import { Task } from '@/types/task';
 
-export default function useAddTask ({onClose}: {onClose: () => void}){
+export default function useAddTask ({onClose, task}: {onClose: () => void, task: Task | null}){
     const [loading, setLoading] = useState<boolean>(false);
     const [uploading, setUploading] = useState<boolean>(false);
     const [attachement, setAttachment] = useState("");
     const initialValues = {
-        title: '',
-        description: '',
-        startDate: '',
-        endDate: '',
-        priority: 'Low',
-        attachement: '',
+        title: task?.title || "",
+        description: task?.description || "",
+        startDate: task?.startDate || "",
+        endDate: task?.endDate || "",
+        priority: task?.priority || "",
+        attachement: task?.attachment || "",
         assignees: [],
-        projectName: '',
+        projectName: task?.projectName || "",
     }
 
     const validationSchema = Yup.object({
@@ -79,6 +80,8 @@ export default function useAddTask ({onClose}: {onClose: () => void}){
         setAttachment(apiResponse.fileUrl as string)
     }
     }
+
+
 
     return {
         errors,

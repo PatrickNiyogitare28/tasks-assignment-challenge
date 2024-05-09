@@ -1,7 +1,6 @@
 package com.org.school_rest.models;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,10 +18,10 @@ public class Task {
     private String description;
 
     @Column(name = "start_date")
-    private LocalDate startDate;
+    private String startDate;
 
     @Column(name = "end_date")
-    private LocalDate endDate;
+    private String endDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<User> assignee;
@@ -62,19 +61,19 @@ public class Task {
         this.description = description;
     }
 
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

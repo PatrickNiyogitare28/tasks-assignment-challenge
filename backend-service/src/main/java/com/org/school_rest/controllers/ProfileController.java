@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,5 +31,13 @@ public class ProfileController {
        Map<String, Object> data = new HashMap<>();
        data.put("profile", profile);
        return ResponseEntity.ok().body(new APIResponse("Profile found", true, data));
+   }
+
+   @GetMapping("")
+   public ResponseEntity<?> findAll(){
+      List<User> profiles = profileService.findAll();
+      Map<String, Object> data = new HashMap<>();
+      data.put("profiles", profiles);
+      return ResponseEntity.ok().body(new APIResponse("Fetched profiles", true, data));
    }
 }

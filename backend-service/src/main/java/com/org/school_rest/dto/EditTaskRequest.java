@@ -1,14 +1,14 @@
 package com.org.school_rest.dto;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 public class EditTaskRequest {
 
     private String title;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
     private List<Long> assigneeIds; // List of user IDs representing the assignees
     private String projectName;
     private String priority;
@@ -32,19 +32,19 @@ public class EditTaskRequest {
         this.description = description;
     }
 
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

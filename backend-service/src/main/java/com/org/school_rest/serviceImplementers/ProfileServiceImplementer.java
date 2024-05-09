@@ -1,13 +1,16 @@
 package com.org.school_rest.serviceImplementers;
 
-import com.org.school_rest.dto.EditProfileRequest;
 import com.org.school_rest.models.User;
 import com.org.school_rest.repositories.UserRepository;
 import com.org.school_rest.services.ProfileService;
+import com.org.school_rest.utils.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,6 +24,11 @@ public class ProfileServiceImplementer implements ProfileService {
         boolean profileExists = userRepository.existsById(userId);
         if(!profileExists) return Optional.empty();
         return userRepository.findById(userId);
+    }
+
+    @Override
+    public List<User> findAll(){
+        return userRepository.findAll();
     }
 
 //    @Override

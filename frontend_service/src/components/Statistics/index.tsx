@@ -1,11 +1,11 @@
 import React from 'react';
 import {BiGroup, BiSolidGroup, BiListCheck, BiListMinus} from 'react-icons/bi';
 import BarChart from './Charts/Bar';
-import UserPieChart from './Charts/Pai';
-import useGetStats from './hooks/useGetStats';
+// import UserPieChart from './Charts/Pai';
+// import useGetStats from './hooks/useGetStats';
 
 export default function AdminStatistics () {
-    const {data} = useGetStats();
+    // const {data} = useGetStats();
     return (
         <div className="w-full">
         <h2 className='font-bold text-xl p-4 px-6'>Metrics</h2>
@@ -16,7 +16,7 @@ export default function AdminStatistics () {
                 <BiGroup size={30} color='silver' />
                 </div>
                 <div>
-                    <label className='text-primary font-bold text-4xl'>{data.appointments}</label>
+                    <label className='text-primary font-bold text-4xl'>2</label>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@ export default function AdminStatistics () {
                 <BiSolidGroup size={30}  color='silver'  />
                 </div>
                 <div>
-                    <label className='text-primary font-bold text-4xl'>{data.messages}</label>
+                    <label className='text-primary font-bold text-4xl'>12</label>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ export default function AdminStatistics () {
             <BarChart />
         </div>
         <div className='w-[30%]'>
-           <UserPieChart verified={data.verifiedAccounts} nonVerified={data.nonVerifiedAccounts} />
+           {/* <UserPieChart verified={data.verifiedAccounts} nonVerified={data.nonVerifiedAccounts} /> */}
         </div>
         </div>
         </div>

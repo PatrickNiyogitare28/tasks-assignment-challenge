@@ -1,15 +1,14 @@
 package com.org.school_rest.dto;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.util.List;
 
 public class CreateTaskRequest {
 
     private String title;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
     private List<Long> assigneeIds; // List of user IDs representing the assignees
     private String projectName;
     private String priority;
@@ -34,19 +33,19 @@ public class CreateTaskRequest {
         this.description = description;
     }
     @NotBlank
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
     @NotBlank
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
     @NotBlank
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
     @NotBlank
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
     @NotBlank

@@ -11,10 +11,11 @@ import FormAction from './FormAction';
 import Link from 'next/link';
 import useGetAssignees from './hooks/useAssignees';
 import { PROJECTS_OPTIONS } from './projects';
+import { Task } from '@/types/task';
 
 
-export default function AddTaskForm({onClose}: {onClose: () => void}){
-   const {errors, touched, values, setFieldValue, getFieldProps, loading, onSubmit, uploading, uploadToCloudinary, attachement } = useAddTask({onClose});
+export default function AddTaskForm({onClose, task}: {onClose: () => void, task: Task | null}){
+   const {errors, touched, values, setFieldValue, getFieldProps, loading, onSubmit, uploading, uploadToCloudinary, attachement } = useAddTask({onClose, task});
    const {assignees} = useGetAssignees();
   return (
         <div className='w-[30vw] h-[80vh] overflow-y-scroll'>

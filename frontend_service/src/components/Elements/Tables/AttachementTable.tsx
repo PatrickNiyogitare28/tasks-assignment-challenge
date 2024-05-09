@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useUpdateAppointment from './hooks/useUpdateAppointment';
 import { Toaster } from 'react-hot-toast';
 import { Task } from '@/types/task';
+import AddTaskForm from '@/components/Forms/AddTaskFrom';
+import Modal from '@/components/Modal';
 
 interface Props {
     tasks: Task[],
@@ -10,7 +12,10 @@ interface Props {
 
 const AttachementTable = ({ tasks, refetch }: Props) => {
   const {handleChangeStatus} = useUpdateAppointment({refetch});
+  const [showModal, setShowModal] = useState<boolean>(false);
+  
   return (
+    <>
     <div className="overflow-x-auto" style={{borderRadius: '20px 20px 0px 0px'}}>
       <Toaster />
       <table className="min-w-full border-collapse table-auto">
@@ -46,13 +51,21 @@ const AttachementTable = ({ tasks, refetch }: Props) => {
                 <a href={task.attachment} target='_blank' className='bg-green-400 text-black px-6 font-bold p-2 rounded-md'>View</a>
               </td>
               <td className="border p-2">
-                <button className='bg-blue-400  text-white  font-bold py-2 px-6 rounded-md'>EDIT</button>
+                <button className='bg-blue-400  text-white  font-bold py-2 px-6 rounded-md' onClick={() => setShowModal(true)}>EDIT</button>
               </td>
+              {showModal &&
+                <Modal title='EDIT TASK' onClose={() => setShowModal(false)}>
+                  <AddTaskForm task={task} onClose={() => {setShowModal(false); refetch()}} />
+                </Modal>
+              }
             </tr>
           ))}
         </tbody>
+        
       </table>
     </div>
+    
+    </>
   );
 };
 

@@ -28,8 +28,8 @@ export default function AdminAppointments () {
             </div>
         </div>  
         {showModal &&
-          <Modal title='ADD USER' onClose={() => setShowModal(false)}>
-            <AddTaskForm onClose={() => {setShowModal(false); refetch()}} />
+          <Modal title='ADD TASK' onClose={() => setShowModal(false)}>
+            <AddTaskForm task={null} onClose={() => {setShowModal(false); refetch()}} />
           </Modal>
         }
         </>
