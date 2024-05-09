@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useUpdateAppointment from './hooks/useUpdateAppointment';
+import useUpdateTasks from './hooks/useUpdateTasks';
 import { Toaster } from 'react-hot-toast';
 import { Task } from '@/types/task';
 import AddTaskForm from '@/components/Forms/AddTaskFrom';
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const AttachementTable = ({ tasks, refetch }: Props) => {
-  const {handleChangeStatus} = useUpdateAppointment({refetch});
+  const {handleChangeStatus} = useUpdateTasks({refetch});
   const [showModal, setShowModal] = useState<boolean>(false);
   
   return (
@@ -41,7 +41,6 @@ const AttachementTable = ({ tasks, refetch }: Props) => {
               <td className="border p-2">{task.endDate}</td>
               <td className="border p-2">{task.description}</td>
               <td className="border p-2">{task.priority}</td>
-              {/* <td className="border p-2">{new Date(appointment.Time as string).toLocaleDateString()}</td> */}
               <td className="border p-2 flex gap-2">
                 {task.assignee.map((ass, index) => (
                   <label key={index} className='p-2 bg-blue-2 text-gray-600'>{ass.fullName}</label>

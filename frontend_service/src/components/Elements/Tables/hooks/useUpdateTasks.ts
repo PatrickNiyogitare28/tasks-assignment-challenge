@@ -1,15 +1,15 @@
 import axiosInstance from "@/lib/axios"
 import toast from "react-hot-toast"
 
-export default function useUpdateAppointment({refetch}: {refetch: () => void;}){
+export default function useUpdateTask({refetch}: {refetch: () => void;}){
     const handleChangeStatus = (Status: 'APPROVED' | 'REJECTED' | 'PENDING', Id: string) => {
-        axiosInstance.put(`/appointments/${Id}`, {Status})
+        axiosInstance.put(`/tasks/${Id}`, {Status})
         .then((data) => {
             refetch();
-            toast.success("Appointment updated successfully")
+            toast.success("Task updated successfully")
         })
         .catch((e) => {
-            toast.error("Appointment not updated, error occurred")
+            toast.error("Task not updated, error occurred")
         })
     }
     return {

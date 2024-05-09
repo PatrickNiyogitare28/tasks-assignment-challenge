@@ -5,25 +5,25 @@ import { Bar } from 'react-chartjs-2';
 
 export interface ChartDataItem {
     date: string;
-    appointments: number;
-    messages: number;
+    tasks: number;
+    users: number;
 }
 
 // src/data.ts
 
 export const chartData: ChartDataItem[] = [
-    { date: "Jan", appointments: 2, messages: 1 },
-    { date: "Feb", appointments: 0, messages: 3 },
-    { date: "Mar", appointments: 4, messages: 2 },
-    { date: "Apr", appointments: 2, messages: 2 },
-    { date: "May", appointments: 4, messages: 1 },
-    { date: "Jun", appointments: 5, messages: 3 },
-    { date: "Jul", appointments: 0, messages: 0 },
-    { date: "Aug", appointments: 2, messages: 4 },
-    { date: "Sep", appointments: 6, messages: 5 },
-    { date: "Oct", appointments: 1, messages: 2 },
-    { date: "Nov", appointments: 0, messages: 0 },
-    { date: "Dec", appointments: 0, messages: 0 },
+    { date: "Jan", tasks: 2, users: 1 },
+    { date: "Feb", tasks: 0, users: 3 },
+    { date: "Mar", tasks: 4, users: 2 },
+    { date: "Apr", tasks: 2, users: 2 },
+    { date: "May", tasks: 4, users: 1 },
+    { date: "Jun", tasks: 5, users: 3 },
+    { date: "Jul", tasks: 0, users: 0 },
+    { date: "Aug", tasks: 2, users: 4 },
+    { date: "Sep", tasks: 6, users: 5 },
+    { date: "Oct", tasks: 1, users: 2 },
+    { date: "Nov", tasks: 0, users: 0 },
+    { date: "Dec", tasks: 0, users: 0 },
   ];
   
 
@@ -44,14 +44,14 @@ const UserBarChart: React.FC = () => {
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
-        data: chartData.map((data: ChartDataItem) => data.appointments),
+        data: chartData.map((data: ChartDataItem) => data.tasks),
       },
       {
         label: 'Users',
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
-        data: chartData.map((data: ChartDataItem) => data.messages),
+        data: chartData.map((data: ChartDataItem) => data.users),
       },
     ],
   };

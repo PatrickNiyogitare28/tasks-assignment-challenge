@@ -5,7 +5,7 @@ import getSessionUser from '@/utils/get-user';
 import { GetServerSideProps } from 'next';
 import React from 'react';
 
-export default function AppointmentsPage(props: any){
+export default function TasksPage(props: any){
     const SessionUser= props.SessionUser as TSessionUser;
     return (
        <Dashboard User={SessionUser}>

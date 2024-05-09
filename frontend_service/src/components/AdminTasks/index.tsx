@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {BiDownload, BiPlus} from 'react-icons/bi';
 import TasksTable from '../Elements/Tables/AttachementTable';
-import useFetchTasks from './hooks/useFetchAdminAppointments';
+import useFetchTasks from './hooks/useFetchAdminTasks';
 import Modal from '../Modal';
 import AddTaskForm from '../Forms/AddTaskFrom';
 
 
-export default function AdminAppointments () {
+export default function AdminTasks () {
     const [showModal, setShowModal] = useState<boolean>(false);
     const {tasks, refetch, handleDownloadReport} = useFetchTasks()
     return (

@@ -6,11 +6,9 @@ import { Task } from "@/types/task";
 
 export default function useFetchTasks(){
     const [tasks, setTasks] = useState<Task[]>([])
-    const fetchAppointments = async() => {
+    const fetchTasks = async() => {
         await axiosInstance.get(`/tasks`)
         .then((data) => {
-            console.log("axios success")
-            console.log(data.data.data);
             setTasks(data.data.data.tasks);
         })
         .catch((e)=>{
@@ -20,7 +18,7 @@ export default function useFetchTasks(){
     }
 
     useEffect(() => {
-        fetchAppointments();
+        fetchTasks();
     },[])
 
     const handleDownloadReport = () => {
@@ -34,9 +32,9 @@ export default function useFetchTasks(){
             data.push(row);
           })
       
-         downloadReport(data, "appointments-"+generateRandomNameId())
+         downloadReport(data, "tasks-"+generateRandomNameId())
     }
-    const refetch = () => fetchAppointments();
+    const refetch = () => fetchTasks();
     return {
         tasks,
         refetch,

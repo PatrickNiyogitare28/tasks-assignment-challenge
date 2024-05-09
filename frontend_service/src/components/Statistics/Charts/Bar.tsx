@@ -5,25 +5,25 @@ import { Bar } from 'react-chartjs-2';
 
 export interface ChartDataItem {
     date: string;
-    appointments: number;
-    messages: number;
+    tasks: number;
+    users: number;
 }
 
 // src/data.ts
 
 export const chartData: ChartDataItem[] = [
-    { date: "Jan", appointments: 5, messages: 10 },
-    { date: "Feb", appointments: 7, messages: 12 },
-    { date: "Mar", appointments: 8, messages: 15 },
-    { date: "Apr", appointments: 10, messages: 18 },
-    { date: "May", appointments: 12, messages: 2 },
-    { date: "Jun", appointments: 20, messages: 14 },
-    { date: "Jul", appointments: 6, messages: 4 },
-    { date: "Aug", appointments: 5, messages: 6 },
-    { date: "Sep", appointments: 12, messages: 15 },
-    { date: "Oct", appointments: 4, messages: 1 },
-    { date: "Nov", appointments: 0, messages: 0 },
-    { date: "Dec", appointments: 0, messages: 0 },
+    { date: "Jan", tasks: 5, users: 10 },
+    { date: "Feb", tasks: 7, users: 12 },
+    { date: "Mar", tasks: 8, users: 15 },
+    { date: "Apr", tasks: 10, users: 18 },
+    { date: "May", tasks: 12, users: 2 },
+    { date: "Jun", tasks: 20, users: 14 },
+    { date: "Jul", tasks: 6, users: 4 },
+    { date: "Aug", tasks: 5, users: 6 },
+    { date: "Sep", tasks: 12, users: 15 },
+    { date: "Oct", tasks: 4, users: 1 },
+    { date: "Nov", tasks: 0, users: 0 },
+    { date: "Dec", tasks: 0, users: 0 },
   ];
   
 
@@ -44,14 +44,14 @@ const BarChart: React.FC = () => {
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
-        data: chartData.map((data: ChartDataItem) => data.appointments),
+        data: chartData.map((data: ChartDataItem) => data.tasks),
       },
       {
         label: 'Users',
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
-        data: chartData.map((data: ChartDataItem) => data.messages),
+        data: chartData.map((data: ChartDataItem) => data.users),
       },
     ],
   };
