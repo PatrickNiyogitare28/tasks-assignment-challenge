@@ -10,3 +10,13 @@ table tr {
     height: 50px;
     /* min-height: 50px; */
 }
+
+/* Custom CSS for hiding scrollbar */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}

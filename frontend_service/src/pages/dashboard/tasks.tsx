@@ -1,4 +1,4 @@
-import Appointments from '@/components/AdminTasks';
+import Tasks from '@/components/AdminTasks';
 import Dashboard from '@/components/Layouts/Dashboard';
 import { TSessionUser } from '@/types/user';
 import getSessionUser from '@/utils/get-user';
@@ -9,7 +9,7 @@ export default function AppointmentsPage(props: any){
     const SessionUser= props.SessionUser as TSessionUser;
     return (
        <Dashboard User={SessionUser}>
-            <Appointments />
+            <Tasks />
        </Dashboard>
     )
 }

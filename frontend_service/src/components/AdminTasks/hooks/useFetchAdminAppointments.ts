@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react"
-import { Appointment, User } from "@/generated/graphql"
 import axiosInstance from "@/lib/axios"
-import { TSessionUser } from "@/types/user"
-import * as XLSX from 'xlsx';
-import formatTimestampToDate from "@/utils/formatTime";
 import downloadReport from "@/utils/downloadReport";
 import generateRandomNameId from "@/utils/randomId";
+import { Task } from "@/types/task";
 
-export default function useFetchAdminAppointments(){
-    const [appointments, setAppointments] = useState<Appointment[]>([])
+export default function useFetchTasks(){
+    const [tasks, setTasks] = useState<Task[]>([])
     const fetchAppointments = async() => {
-        await axiosInstance.get(`/appointments/admin`)
+        await axiosInstance.get(`/tasks`)
         .then((data) => {
             console.log("axios success")
             console.log(data.data.data);
-            setAppointments(data.data.data.Appointment);
+            setTasks(data.data.data.tasks);
         })
         .catch((e)=>{
             console.log("axios error")
@@ -28,11 +25,12 @@ export default function useFetchAdminAppointments(){
 
     const handleDownloadReport = () => {
         const data:any = [
-            ["Name", "Phone", "Email", "Appointment", "Reason", "Appointment category", "Time", "Status"],
+            ["Name", "Project", "Description", "Start Date", "End Date", "Assignee", "Priority", "Attachement"],
           ];
 
-          appointments.forEach((app) => {
-            const row = [app.User.FullName, app.User.Phone, app.User.Email, app.Title, app.Message, app.Type,  formatTimestampToDate(app.Time as string), app.Status]
+          tasks.forEach((task) => {
+            const row = [task.title, task.projectName, task.description, task.startDate, task.endDate, `${task.assignee.map((ass) => ass.fullName+" ")}`, 
+             task.priority, task.attachment]
             data.push(row);
           })
       
@@ -40,7 +38,7 @@ export default function useFetchAdminAppointments(){
     }
     const refetch = () => fetchAppointments();
     return {
-        appointments,
+        tasks,
         refetch,
         handleDownloadReport
     }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import UserTable from '../Elements/Tables/Users';
-import users from '@/lib/users';
 import {BiPlus, BiDownload} from 'react-icons/bi';
 import {Toaster} from 'react-hot-toast';
 import Modal from '../Modal';
